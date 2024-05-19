@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request Teacher</title>
+  <link rel="stylesheet" href="../settings.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.js"></script>
+
+		<!-- Favicon -->
+        <link rel="icon" href="img/ashez_transparent.png">
+		
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- Nice Select CSS -->
+		<link rel="stylesheet" href="css/nice-select.css">
+		<!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- icofont CSS -->
+        <link rel="stylesheet" href="css/icofont.css">
+		<!-- Slicknav -->
+		<link rel="stylesheet" href="css/slicknav.min.css">
+		<!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="css/owl-carousel.css">
+		<!-- Datepicker CSS -->
+		<link rel="stylesheet" href="css/datepicker.css">
+		<!-- Animate CSS -->
+        <link rel="stylesheet" href="css/animate.min.css">
+		<!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="css/magnific-popup.css">
+		
+		<!-- Medipro CSS -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="../popout.css">
+        <link rel="stylesheet" href="../alert.css">
+		
+        <style>
+          #map {
+           width: 100%;
+           height: 400px;
+           margin-bottom: 10%;
+       }
+       
+       </style>     
+
+</head>
+<body>
+ <!-- Header Area -->
+ <header class="header" style="z-index: 99999;" >
+    <!-- Header Inner -->
+    <div class="header-inner" >
+        <div class="container" >
+            <div class="inner"  >
+                <div class="row">
+                  <i class="icofont-arrow-left" id = "left-arrow" onclick="goBack()"></i>
+
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <!-- Start Logo -->
+                        <div class="logo">
+                        <a href="homepageorg.html"><img src="img/ASHEZ.png" alt="#"></a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+                    <div class="col-lg-6 col-md-9 col-12">
+                        <!-- Main Menu -->
+                        <div class="main-menu">
+                            <nav class="navigation" style="align-self: flex-start;">
+                                <ul class="nav menu" >
+                                    <li ><a href="homepageorg.html">Home</i></a>
+                                    </li>
+                                    <li class="active"><a href="javascript:void(0);">Request <i class="icofont-rounded-down"></i></a> 
+                                        <ul class="dropdown">
+                                          <li>
+                                            <a href="postmed.html">Medical Supplies</a>
+                                                    <a href="postschool.html">School Supplies</a>
+                                                    <a href="postclothes.html">Clothes</a>
+                                                    <a href="postfood.html">Food</a>
+                                                    <a href="postblood.html">Blood</a>
+                                                    <a href="posttoys.html">Toys</a>
+                                                    <a href="postdoctor.html">Doctors</a>
+                                                    <a href="postteacher.html">Teachers</a>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="aboutusorg.html">About Us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--/ End Main Menu -->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-12" id = "icon-column">
+                        <div class="icon-container">
+                          <nav class="navigation">
+                            <ul class="nav menu" style="display: flex; align-items: center;">
+                                <li ><a href="notifications.html"><i class="bi bi-bell ashez-icon" id = "bell-icon"></i></a></li>
+                                <li ><a href="orgsettings.html" ><i class="bi bi-gear ashez-icon" id = "settings-gear"></i></a></li>
+                                <a href="../index.html" class="btn d-block w-100 d-sm-inline-block btn-light delete-button" style="max-width: 96px; max-height: 45px;" id="log-out" >Logout</a>
+                              </ul>
+                        </nav>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->   
+
+<div class="container">
+
+
+    <div class="row gutters-sm">
+      <div class="col-md-4 d-none d-md-block">
+        <div class="card">
+          <div class="card-body">
+                <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="border: 1px solid; ">
+                        <img class="img-holder photo" src="img/uploadf.jpg" alt="">
+                </div>
+                <br>
+                <div class="row">
+                    <input type="file" id = "file-here" accept="image/*" class="btn photobtn">
+                </div>
+                               
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" style="margin-bottom: 300px;">
+        <div class="card">
+          <div class="card-header border-bottom mb-3 d-flex d-md-none">
+            
+          </div>
+          <div class="card-body tab-content" >
+            <div class="tab-pane active" id="profile" >
+              <h6>REQUEST TEACHER</h6>
+              <hr>
+              <form >
+                <div class="form-group">
+                  <label for="username">Title</label>
+                  <input type="text" class="form-control" id="title" aria-describedby="usernameHelp" placeholder="Enter title of your donation">
+                </div>
+                <br>
+                <div class="form-group" style="margin-top: 2%;">
+                    <label for="username" >Number Of Students</label>
+                    <br>
+                    
+                    <input type="number" min="0" class="form-control" id = "number-studs" style="height: 50px; width: 250px;" placeholder="Enter number of students">
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="username">Address</label>
+                    <input type="text" class="form-control" id="address" aria-describedby="usernameHelp" placeholder="Enter address here">
+                  </div>
+                  <br>
+
+                  <div class="form-group">
+                    <label for="username">Pin your address here</label>
+                    <div id = "map"></div>
+                  </div>
+                  <br>
+
+                  <div class="form-group">
+                    <label for="username">Subject</label>
+                    <input type="text" class="form-control" id="subject" aria-describedby="usernameHelp" placeholder="Enter Subject here">
+                  </div>
+                  <br>
+                
+
+                <button type="button" class="btn btn-primary" id = "update-profile" style="margin-left: 550px;">Post Request</button>
+                <br><br>
+                <div id = "append-here"></div>
+              </form>
+            </div>
+            <div class="tab-pane" id="security">
+              <h6>SECURITY SETTINGS</h6>
+              <hr>
+              <form>
+                <div class="form-group">
+                  <label class="d-block">Change Password</label>
+                  <input type="text" class="form-control" id = "old-pass" placeholder="Enter your old password" type = "password" >
+                  <input type="text" class="form-control mt-1" id = "new-pass1"placeholder="New password">
+                  <input type="text" class="form-control mt-1" id = new-pass2 placeholder="Confirm new password">
+                </div>
+              </form>
+              <hr>
+              <form>
+                <div class="form-group mb-0" id = "add-confirm">
+                      <button class="btn btn-light btn-sm ml-auto" type="button" id = "confirm-button" >Confirm</button>
+                  </ul>
+                </div>
+              </form>
+            </div>
+
+            <div class="tab-pane" id="dropoff">
+              <h6> DROPOFF SETTINGS</h6>
+              <hr>
+              <form>
+                <div class="form-group">
+                  <label class="d-block">Change Dropoff time</label>
+
+                  <div class="form-group small text-muted">
+                    Specify the time slot you want your donations to be dropped off at.
+                  </div>
+                  <label for="username">From Time</label>
+                  <input type="time" class="form-control" id = "from-time" placeholder="FROM" value="09:00" >
+                  <label for="username">To Time</label>
+                  <input type="time" class="form-control mt-1" id = "to-time" placeholder="TO" value="15:00">
+                </div>
+              </form>
+              <hr>
+              <form>
+                <div class="form-group mb-0" id = "add-update">
+                      <button class="btn btn-light btn-sm ml-auto" type="button" id = "update-button" >Update</button>
+                  </ul>
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+ <!-- Footer Area -->
+<footer id="footer" class="footer ">
+  <!-- Footer Top -->
+  <div class="footer-top">
+      <div class="container">
+          <div class="row" style="display: flex; justify-content: space-between; align-content: center;">
+              <div class="col-lg-3 col-md-6 col-12">
+                  <div class="single-footer f-link">
+                      <h2>Quick Links</h2>
+                      <div class="row">
+                          <div class="col-lg-6 col-md-6 col-12">
+                              <ul>
+                                  <li><a href="homepageorg.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+                                  <li><a href="aboutusorg.html"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+                                  <li><a href="orgsettings.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Settings</a></li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-12">
+                              <ul>
+                                  <li><a href="required.html"><i class="fa fa-caret-right" aria-hidden="true"></i>My Donations</a></li>
+                                  <li><a href="notifications.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Notifications</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-12">
+                  <div class="single-footer">
+                      <h2>Contact us</h2>
+                      <ul class="top-contact">
+              <li style="color: white;"><i class="fa fa-phone"></i>     +880 1234 56789</li>
+              <li style="color: white;"><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">    support@yourmail.com</a></li>
+            </ul>
+                     
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--/ End Footer Top -->
+  <!-- Copyright -->
+  <div class="copyright">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-12">
+                  <div class="copyright-content">
+                      <p>© Copyright 2024  |  All Rights Reserved </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
+
+<script>
+
+  let count = 0; 
+
+  const map = L.map('map').setView([30.083153, 31.663866], 13);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+  
+          map.on('click', function (e) {
+          if (count === 0) {
+            count++; 
+            
+          
+            
+          const latlng = e.latlng;
+          console.log('Selected location:', latlng);
+  
+          const marker = L.marker(latlng).addTo(map).bindPopup('Hello, Leaflet!');
+  
+          // Listen for the marker's click event
+          marker.on('click', function () {
+              count--; 
+              map.removeLayer(marker); // Remove the marker when clicked
+          });
+
+        }
+  
+      
+  });
+  
+          const searchControl = L.Control.geocoder({
+          defaultMarkGeocode: false, 
+  }).addTo(map);
+  
+  // Listen for a result (location) selection
+  searchControl.on('markgeocode', function (e) {
+      latlng = e.geocode.center;
+      console.log('Selected location:', latlng);
+      map.setView(latlng, 13)
+  
+    });
+  
+
+  
+  </script>
+
+
+<!-- jquery Min JS -->
+<script src="postteacher.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<!-- jquery Migrate JS -->
+<script src="js/jquery-migrate-3.0.0.js"></script>
+<!-- jquery Ui JS -->
+<script src="js/jquery-ui.min.js"></script>
+<!-- Easing JS -->
+<script src="js/easing.js"></script>
+<!-- Color JS -->
+<script src="js/colors.js"></script>
+<!-- Popper JS -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="js/bootstrap-datepicker.js"></script>
+<!-- Jquery Nav JS -->
+<script src="js/jquery.nav.js"></script>
+<!-- Slicknav JS -->
+<script src="js/slicknav.min.js"></script>
+<!-- ScrollUp JS -->
+<script src="js/jquery.scrollUp.min.js"></script>
+<!-- Niceselect JS -->
+<script src="js/niceselect.js"></script>
+<!-- Tilt Jquery JS -->
+<script src="js/tilt.jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="js/owl-carousel.js"></script>
+<!-- counterup JS -->
+<script src="js/jquery.counterup.min.js"></script>
+<!-- Steller JS -->
+<script src="js/steller.js"></script>
+<!-- Wow JS -->
+<script src="js/wow.min.js"></script>
+<!-- Magnific Popup JS -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Counter Up CDN JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Required Donations</title>
+    <link rel="stylesheet" href="../lists.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <!-- Favicon -->
+    <link rel="icon" href="img/ashez_transparent.png">
+		
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="css/nice-select.css">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="css/icofont.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="css/slicknav.min.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="css/owl-carousel.css">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="css/datepicker.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../popout.css">
+    <link rel="stylesheet" href="../alert.css">
+
+    <style>
+        #map {
+         width: 300px; 
+         height: 250px;
+         margin-bottom: 10%;
+     }
+
+     #map1 {
+         width: 300px; 
+         height: 250px;
+         margin-bottom: 10%;
+     }
+     
+     </style>     
+
+</head>
+<body>
+    <!-- Header Area -->
+ <header class="header" >
+    <!-- Header Inner -->
+    <div class="header-inner" >
+        <div class="container" >
+            <div class="inner"  >
+                <div class="row">
+                    <i class="icofont-arrow-left" id = "left-arrow" onclick="goBack()"></i>
+
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <!-- Start Logo -->
+                        <div class="logo">
+                        <a href="homepageorg.html"><img src="img/ASHEZ.png" alt="#"></a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+                    <div class="col-lg-6 col-md-9 col-12">
+                        <!-- Main Menu -->
+                        <div class="main-menu">
+                            <nav class="navigation" style="align-self: flex-start;">
+                                <ul class="nav menu" >
+                                    <li ><a href="homepageorg.html">Home</i></a>
+                                    </li>
+                                    <li class="active"><a href="javascript:void(0);">Request <i class="icofont-rounded-down"></i></a> 
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="postmed.html">Medical Supplies</a>
+                                                    <a href="postschool.html">School Supplies</a>
+                                                    <a href="postclothes.html">Clothes</a>
+                                                    <a href="postfood.html">Food</a>
+                                                    <a href="postblood.html">Blood</a>
+                                                    <a href="posttoys.html">Toys</a>
+                                                    <a href="postdoctor.html">Doctors</a>
+                                                    <a href="postteacher.html">Teachers</a>
+                                            </ul>
+                                    </li>
+                                    <li><a href="aboutusorg.html">About Us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--/ End Main Menu -->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-12" id = "icon-column">
+                        <div class="icon-container">
+                          <nav class="navigation">
+                            <ul class="nav menu" style="display: flex; align-items: center;">
+                                <li ><a href="notifications.html"><i class="bi bi-bell ashez-icon" id = "bell-icon"></i></a></li>
+                                <li ><a href="orgsettings.html" ><i class="bi bi-gear ashez-icon" id = "settings-gear"></i></a></li>
+                                <a href="../index.html" class="btn d-block w-100 d-sm-inline-block btn-light" style="max-width: 96px; max-height: 45px;" id="log-out" >Logout</a>
+                            </ul>
+                        </nav>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->  
+<section class="sector-title">
+    <div class="container">
+        <div class="row" style="display: flex; justify-content: center;">
+            <!-- <div class="col-lg-10 mx-auto mb-4"> -->
+            <div class="col-lg-7">
+               <div class="text" style="display: flex; justify-content: center;">
+                   <h7>Required Donations</h7>
+               </div>
+           </div>
+       </div>
+    </div>
+</section>
+
+
+<div id="savepop">
+
+</div>
+<br><br>
+
+<section >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <div class="career-search mb-60">
+                    <form action="javascript:void(0)" class="career-form mb-60" >
+                        <div class="row">
+                            <div class="col-md-6 col-lg-6 my-3">
+                                <div class="input-group position-relative">
+                                    <input type="text" class="form-control" placeholder="Enter Your Keywords" id="keywords" onkeypress="handleEnterKey(event)">
+                                </div>
+                            </div>
+                            
+                           
+                            <div class="custom-dropdown col-md-6 col-lg-3 my-3">
+                                
+                            </div>
+                            
+                              
+                            <div class="col-md-6 col-lg-3 my-3">
+                                <button type="button" class="btn btn-lg btn-block btn-light btn-custom" id="contact-submit">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="filter-result">
+                        <br>
+
+                        <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="background-image: url(../img/browniessmall.jpg);">
+                                </div>
+                                <div class="job-content">
+                                    <h5 class="text-center text-md-left">Brownies</h5>
+                                    
+                                </div>
+                            </div>
+                            <div class="job-right my-4 flex-shrink-0">
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light" id="vdonation1">View/Update Request Details</a>
+                                <br></br>
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light delete-button" >Delete Request</a>
+                            </div>
+                        </div>
+
+                        <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="background-image:url(../img/barbiesmall.jpg);">
+                                    
+                                </div>
+                                <div class="job-content">
+                                    <h5 class="text-center text-md-left">Barbie Doll</h5>
+                                </div>
+                            </div>
+                            <div class="job-right my-4 flex-shrink-0">
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light" id="vdonation2">View/Update Request Details</a>
+                                <br></br>
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light delete-button" >Delete Request</a>
+                            </div>
+                        </div>
+                        <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="background-image:url(../img/appendix.jpg);">
+                
+                                </div>
+                                <div class="job-content">
+                                    <h5 class="text-center text-md-left">Appendix Removal Surgery</h5>
+                                    <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="job-right my-4 flex-shrink-0">
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light" id="vdonation3">View/Update Request Details</a>
+                                <br></br>
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light delete-button" >Delete Request</a>                            </div>
+                        </div>
+                        <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="background-image:url(img/diffeq1small.jpg);">
+                
+                                </div>
+                                <div class="job-content">
+                                    <h5 class="text-center text-md-left">Differential Equations Session</h5>
+                                    <ul class="d-md-flex flex-wrap text-capitalize ff-open-sans">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="job-right my-4 flex-shrink-0">
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light" id="vdonation4">View/Update Request Details</a>
+                                <br></br>
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light delete-button" >Delete Request</a>                           </div>
+                        </div>
+                        <div class="job-box d-md-flex align-items-center justify-content-between mb-30">
+                            <div class="job-left my-4 d-md-flex align-items-center flex-wrap">
+                                <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="background-image: url(../img/Bloodmonitorsmall.png);">
+                                    
+                                </div>
+                                <div class="job-content">
+                                    <h5 class="text-center text-md-left">Blood Pressure Monitor</h5>
+
+                                </div>
+                            </div>
+                            <div class="job-right my-4 flex-shrink-0">
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light" id="vdonor1">View/Update Request Details</a>
+                                <br></br>
+                                <a href="javascript:void(0);" class="btn d-block w-100 d-sm-inline-block btn-light delete-button" >Delete Request</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+               
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+
+
+<!--view donation 1-->
+
+<div class="container pop-out" id = "vdonation1-screen">
+    <div class="row">
+        <div class="col-lg-12 mb-4 mb-sm-5">
+            <div class="card card-style1 border-1" style="border: 1px solid black;">
+                <div class="row">
+                    <div class="col-lg-11">
+                    </div>
+                    <div class="col-lg-1" style="display: flex;justify-content: center;">
+                        <i class="bi bi-x-square-fill xbutton close-donation"></i>
+                    </div>
+                </div>
+                <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                    
+                    <div class="row align-items-center" style="gap: 1rem;">
+                        <div class="col-lg-4 mb-4 mb-lg-0" style=" justify-content: center;">
+                            <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="border: 1px solid; ">
+                                    <img class="img-holder photo" src="../Donor/img/brownies.jpg" alt="">
+                            </div>
+                            <br>
+                            <div class="row">
+                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; ">Change Photo:</span>
+                                <input type="file" class="btn photobtn">
+                            </div>
+                               
+
+                        </div>
+                        
+                        <div class="col-lg-8 px-xl-10">
+                            <div class="bg-secondary py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                <h3 class="h2 text-white mb-0">Donation Details</h3>
+                            </div>
+                            <div>
+                                    <ul class="list-unstyled mb-1-9">
+                                        <li class="mb-2 mb-xl-3 display-28">
+                                            <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Title:  </span>
+                                                <input type="text" class="form-control pop1 title" style="height: 50px; width: 250px;" placeholder="Title" value="Brownies" >
+                                             </div>
+                                             <br>
+
+                                             <div class="myrow" >
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1%; margin-right: 4%;">Sector:</span>
+                                                <select class="form-select" style="height: 50px; width: 250px;">
+                                                    <option value="5-11" >Medical Supplies</option>
+                                                    <option value="12-18">School Supplies</option>
+                                                    <option value="19-30">Toys</option>
+                                                    <option value="19-30"selected>Food</option>
+                                                    <option value="19-30">Blood</option>
+                                                    <option value="19-30">Clothes</option>
+                                                    <option value="19-30">Doctors</option>
+                                                    <option value="19-30">Teachers</option>
+                                                    <!-- Add more age ranges as needed -->
+                                                </select>
+                                            </div>
+
+                            
+
+                                    
+                                            <div class="myrow" >
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Amount Needed:</span>
+                                                <input type="number" min="1" class="form-control quantity1" style="height: 50px; width: 250px;" placeholder="Amount" value="15">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="textboxs-error" >
+
+
+                                    </div>
+                                
+                                <div class="row">
+                                    <div class="col-lg-9">
+
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button class="btn d-block w-100 d-sm-inline-block btn-success green-button" style="max-height: 50px; max-width: 200px;" >Save
+                                        </button>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                                <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                                <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                                <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                                <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<!--view donation 2-->
+
+<div class="container pop-out" id = "vdonation2-screen">
+    <div class="row">
+        <div class="col-lg-12 mb-4 mb-sm-5">
+            <div class="card card-style1 border-1" style="border: 1px solid black;">
+                <div class="row">
+                    <div class="col-lg-11">
+                    </div>
+                    <div class="col-lg-1" style="display: flex;justify-content: center;">
+                        <i class="bi bi-x-square-fill xbutton close-donation"></i>
+                    </div>
+                </div>
+                <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                    
+                    <div class="row align-items-center" style="gap: 1rem;">
+                        <div class="col-lg-4 mb-4 mb-lg-0" style=" justify-content: center;">
+                            <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="border: 1px solid; ">
+                                    <img class="img-holder photo" src="../Donor/img/barbiebig.jpg" alt="">
+                            </div>
+                            <br>
+                            <div class="row">
+                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; ">Change Photo:</span>
+                                <input type="file" class="btn photobtn">
+                            </div>
+                               
+
+                        </div>
+                        
+                        <div class="col-lg-8 px-xl-10">
+                            <div class="bg-secondary py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                <h3 class="h2 text-white mb-0">Donation Details</h3>
+                            </div>
+                            <div class="myrow">
+                                    <ul class="list-unstyled mb-1-9 col-lg-6">
+                                        <li class="mb-2 mb-xl-3 display-28">
+                                            <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Title:  </span>
+                                                <input type="text" class="form-control pop2 title" style="height: 50px; width: 200px;" placeholder="Title" value="Barbie Doll" >
+                                             </div>
+                                             <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1%; margin-right: 4%;">Category:</span>
+                                                <select class="form-select" style="height: 50px; width: 250px;">
+                                                    <option value="Dolls" selected>Dolls</option>
+                                                    <option value="Stuffed Toys">Stuffed Toys</option>
+                                                    <option value="Board Games">Board Games</option>
+                                                    <option value="Sports">Sports</option>
+                                                    <option value="Cars">Cars</option>
+                                                    <option value="Outdoor">Outdoor</option>
+                                                    <!-- Add more category options as needed -->
+                                                </select>
+                                            </div>
+                                             <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1%; margin-right: 4%;">Sector:</span>
+                                                <select class="form-select" style="height: 50px; width: 250px;">
+                                                    <option value="5-11" >Medical Supplies</option>
+                                                    <option value="12-18">School Supplies</option>
+                                                    <option value="19-30"selected>Toys</option>
+                                                    <option value="19-30">Clothes</option>
+                                                    <option value="19-30">Food</option>
+                                                    <option value="19-30">Blood</option>
+                                                    <option value="19-30">Doctors</option>
+                                                    <option value="19-30">Teachers</option>
+                                                    <!-- Add more age ranges as needed -->
+                                                </select>
+                                            </div>
+                                    
+                                            
+                                        </li>
+                                    </ul>
+                                    <ul class="list-unstyled mb-1-9 col-lg-6">
+                                        <li class="mb-2 mb-xl-3 display-28">
+                                            <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1%; margin-right: 4%;">Age:</span>
+                                                <select class="form-select" style="height: 50px; width: 250px;">
+                                                    <option value="5-11" >0-4</option>
+                                                    <option value="12-18"selected>5-11</option>
+                                                    <option value="19-30">12-18</option>
+                                                    <option value="19-30">18+</option>
+                                                    <!-- Add more age ranges as needed -->
+                                                </select>
+                                            </div>
+                                    
+                                            <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1%; margin-right: 4%;">Gender:</span>
+                                                <select class="form-select" style="height: 50px; width: 250px;">
+                                                    <option value="Female" selected>Female</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Other">Unisex</option>
+                                                    <!-- Add more gender options as needed -->
+                                                </select>
+                                            </div>
+                                    
+                                    
+                                    
+                                            <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Amount Needed:</span>
+                                                <input type="number" min="1" class="form-control quantity2" style="height: 50px; width: 200px;" placeholder="Amount Needed" value="15">
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div> 
+                                <div class="textboxs-error">
+
+
+                                </div>  
+                                <div class="row ">
+                                    <div class="col-lg-9">
+
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button class="btn d-block w-100 d-sm-inline-block btn-success green-button" style="max-height: 50px; max-width: 200px;" >Save
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            
+
+                            <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                                <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                                <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                                <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                                <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<!--view donation 3-->
+
+<div class="container pop-out" id = "vdonation3-screen">
+    <div class="row">
+        <div class="col-lg-12 mb-4 mb-sm-5">
+            <div class="card card-style1 border-1" style="border: 1px solid black;">
+                <div class="row">
+                    <div class="col-lg-11">
+                    </div>
+                    <div class="col-lg-1" style="display: flex;justify-content: center;">
+                        <i class="bi bi-x-square-fill xbutton close-donation"></i>
+                    </div>
+                </div>
+                <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                    
+                    <div class="row align-items-center" style="gap: 1rem;">
+                        <div class="col-lg-4 mb-4 mb-lg-0" style=" justify-content: center;">
+                            <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="border: 1px solid; ">
+                                    <img class="img-holder photo" src="../img/appendixbig.jpg" alt="">
+                            </div>
+                            <br>
+                            <div class="row">
+                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; ">Change Photo:</span>
+                                <input type="file" class="btn photobtn">
+                            </div>
+                               
+
+                        </div>
+                        
+                        <div class="col-lg-8 px-xl-10">
+                            <div class="bg-secondary py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                <h3 class="h2 text-white mb-0">Donation Details</h3>
+                            </div>
+                            <div class="myrow">
+                                    <ul class="list-unstyled mb-1-9 col-lg-6">
+                                        <li class="mb-2 mb-xl-3 display-28">
+                                            <div class="myrow" style="margin-top: 1%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Title:  </span>
+                                                <input type="text" class="form-control pop3 title" style="height: 50px; width: 250px;" placeholder="Title" value="Appendix Removal Surgery" >
+                                             </div>
+                                             <div class="myrow" style="margin-top: 4%;" >
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1.5%; margin-right: 4%;">Sector:</span>
+                                                <select class="form-select" style="height: 50px; width: 250px;">
+                                                    <option value="5-11" selected>Doctors</option>
+                                                    <option value="12-18">School Supplies</option>
+                                                    <option value="19-30">Toys</option>
+                                                    <option value="19-30">Clothes</option>
+                                                    <option value="19-30">Food</option>
+                                                    <option value="19-30">Blood</option>
+                                                    <option value="19-30">Teachers</option>
+                                                    <option value="19-30">Medical Supplies</option>
+                                                    <!-- Add more age ranges as needed -->
+                                                </select>
+                                            </div>
+                                            <div class="myrow" style="margin-top: 1%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Patient Name:  </span>
+                                                <input type="text" class="form-control pop3" style="height: 50px; width: 250px;" placeholder="Patient Name" value="Habib Hesham" >
+                                             </div>
+                                             <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Age:</span>
+                                                <input type="number" min="1" class="form-control  quantity2" style="height: 50px; width: 200px;" placeholder="Age" value="30">
+                                            </div>
+                                             <div class="myrow" style="margin-top: 1%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Patient Weight(KG):  </span>
+                                                <input type="number" class="form-control pop3 quantity2" style="height: 50px; width: 150px;" placeholder="Patient Weight" value="70" >
+                                             </div>
+
+                                             <div class="myrow" style="margin-top: 4%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1.5%; margin-right: 4%;">Patient Gender:</span>
+                                                <select class="form-select" style="height: 50px; width: 250px;">
+                                                    <option value="Female" >Female</option>
+                                                    <option value="Male"selected>Male</option>
+                                                    
+                                                    <!-- Add more gender options as needed -->
+                                                </select>
+                                            </div>
+                                            
+                                             
+              
+                                
+                                        </li>
+                                    </ul>
+
+                                    <ul class="list-unstyled mb-1-9 col-lg-6">
+                                        <li class="mb-2 mb-xl-3 display-28">
+                                            <div class="myrow" style="margin-top: 1%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Patient Address:  </span>
+                                                <input type="text" class="form-control pop3" style="height: 50px; width: 90%;" placeholder="Patient Address" value="Cairo, Madinaty" >
+                                             </div>
+                                             <br>
+                                           
+                                             <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Location Pin:  </span>
+
+                                             <div id = 'map1'></div>
+                                        </li>
+                                    </ul>
+                                    
+                                    
+
+                                </div> 
+                                <div class="textboxs-error">
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-9">
+
+                                    </div>
+
+
+                                    <div class="col-lg-3">
+                                        
+                                        <button class="btn d-block w-100 d-sm-inline-block btn-success green-button" style="max-height: 50px; max-width: 200px;" >Save
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            
+
+                            <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                                <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                                <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                                <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                                <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+<!--view donation 4-->
+
+<div class="container pop-out" id = "vdonation4-screen">
+    <div class="row">
+        <div class="col-lg-12 mb-4 mb-sm-5">
+            <div class="card card-style1 border-1" style="border: 1px solid black;">
+                <div class="row">
+                    <div class="col-lg-11">
+                    </div>
+                    <div class="col-lg-1" style="display: flex;justify-content: center;">
+                        <i class="bi bi-x-square-fill xbutton close-donation"></i>
+                    </div>
+                </div>
+                <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                    
+                    <div class="row align-items-center" style="gap: 1rem;">
+                        <div class="col-lg-4 mb-4 mb-lg-0" style=" justify-content: center;">
+                            <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="border: 1px solid; ">
+                                    <img class="img-holder photo" src="img/diffeq1.jpg" alt="">
+                            </div>
+                            <br>
+                            <div class="row">
+                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; ">Change Photo:</span>
+                                <input type="file" class="btn photobtn">
+                            </div>
+                               
+
+                        </div>
+                        
+                        <div class="col-lg-8 px-xl-10">
+                            <div class="bg-secondary py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                <h3 class="h2 text-white mb-0">Donation Details</h3>
+                            </div>
+                            <div>
+                                    <ul class="list-unstyled mb-1-9">
+                                        <div class="row">
+                                           
+
+                                            <div  class="col-md-9 col-lg-6 my-3">
+                                                <li class="mb-2 mb-xl-3 display-28">
+                                                    <div class="myrow" >
+                                                        <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 4%; margin-right: 4%;">Title:  </span>
+                                                        <input type="text" class="form-control pop4 title" style="height: 50px; width: 250px;" placeholder="Title" value="Differential Equations Session" >
+                                                     </div>
+                                                     <br>
+                                                     <div class="myrow" >
+                                                        <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1%; margin-right: 4%;">Sector:</span>
+                                                        <select class="form-select" style="height: 50px; width: 250px;">
+                                                            <option value="5-11" selected>Teachers</option>
+                                                            <option value="12-18">School Supplies</option>
+                                                            <option value="19-30">Toys</option>
+                                                            <option value="19-30">Clothes</option>
+                                                            <option value="19-30">Food</option>
+                                                            <option value="19-30">Blood</option>
+                                                            <option value="19-30">Doctors</option>
+                                                            <option value="19-30">Medical Supplies</option>
+                                                        </select>
+                                                    </div>
+                                                
+                                                     <div class="myrow" >
+                                                        <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 4%; margin-right: 4%;">Address:  </span>
+                                                        <input type="text" class="form-control pop4" style="height: 50px; width: 250px;" placeholder="Address" value="5th Settlement, Cairo" >
+                                                     </div>
+                                                     <br>
+                                                     <div class="myrow">
+                                                        <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 4%; margin-right: 4%;">Subject:  </span>
+                                                        <input type="text" class="form-control pop4" style="height: 50px; width: 250px;" placeholder="Subject" value="Mathematics" >
+                                                     </div>
+                                                     <br>
+                                                     <div class="myrow">
+                                                        <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Number Of Students:</span>
+                                                        <input type="number"min="1" class="form-control number4" style="height: 50px; width: 150px;" placeholder="Number Of Students" value="15">
+                                                    </div>
+                                                
+                                                
+                                                </li>
+                                            </div>
+
+                                            <div  class="col-md-3 col-lg-6 my-3">
+
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Location pin:</span>
+
+                                                <div id = 'map'></div>
+                                                
+                                            </div>
+
+                                        </div>
+                                    </ul>
+                                    <div class="textboxs-error">
+
+
+                                    </div>
+                                
+                                <div class="row">
+                                    <div class="col-lg-9">
+
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button class="btn d-block w-100 d-sm-inline-block btn-success green-button" style="max-height: 50px; max-width: 200px;" >Save
+                                        </button>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                                <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                                <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                                <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                                <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+<!--view vdonor1-->
+
+<div class="container pop-out" id = "vdonor1-screen">
+    <div class="row">
+        <div class="col-lg-12 mb-4 mb-sm-5">
+            <div class="card card-style1 border-1" style="border: 1px solid black;">
+                <div class="row">
+                    <div class="col-lg-11">
+                    </div>
+                    <div class="col-lg-1" style="display: flex;justify-content: center;">
+                        <i class="bi bi-x-square-fill xbutton close-donor"></i>
+                    </div>
+                </div>
+                <div class="card-body p-1-9 p-sm-2-3 p-md-6 p-lg-7">
+                    
+                    <div class="row align-items-center" style="gap: 1rem;">
+                        <div class="col-lg-4 mb-4 mb-lg-0" style=" justify-content: center;">
+                            <div class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex" style="border: 1px solid; ">
+                                    <img class="img-holder photo" src="img/Bloodmonitorbig.jpg" alt="">
+                            </div>
+                            <br>
+                            <div class="row">
+                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; ">Change Photo:</span>
+                                <input type="file" class="btn photobtn">
+                            </div>
+                               
+
+                        </div>
+                        
+                        <div class="col-lg-8 px-xl-10">
+                            <div class="bg-secondary py-1-9 px-1-9 px-sm-6 mb-1-9 rounded">
+                                <h3 class="h2 text-white mb-0">Donation Details</h3>
+                            </div>
+                            <div>
+                                    <ul class="list-unstyled mb-1-9">
+                                        <li class="mb-2 mb-xl-3 display-28">
+                                            <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Title:  </span>
+                                                <input type="text" class="form-control pop5 title" style="height: 50px; width: 250px;" placeholder="Title" value="Blood Pressure Monitor" >
+                                             </div>
+
+                                             <div class="myrow" style="margin-top: 2%;" >
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 1%; margin-right: 4%;">Sector:</span>
+                                                <select class="form-select" style="height: 50px; width: 250px;">
+                                                    <option value="5-11" >Teachers</option>
+                                                    <option value="12-18">School Supplies</option>
+                                                    <option value="19-30">Toys</option>
+                                                    <option value="19-30">Clothes</option>
+                                                    <option value="19-30">Food</option>
+                                                    <option value="19-30">Blood</option>
+                                                    <option value="19-30">Doctors</option>
+                                                    <option value="19-30"selected>Medical Supplies</option>
+                                                    <!-- Add more age ranges as needed -->
+                                                </select>
+                                            </div>
+                                            <div class="myrow" >
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Type:</span>
+                                                <input type="text" class="form-control pop5" style="height: 50px; width: 250px;" placeholder="Type" value="Device">
+                                            </div>
+                                             <div class="myrow" style="margin-top: 2%;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Usage:  </span>
+                                                <input type="text" class="form-control pop5" style="height: 50px; width: 250px;" placeholder="Usage" value="Measuring Blood Pressure" >
+                                             </div>
+                                             <div class="myrow" style="margin-top:2% ;">
+                                                <span class="display-26 text-secondary me-2 font-weight-600" style="margin-top: 2%; margin-right: 4%;">Amount Needed:</span>
+                                                <input type="number" min="1" class="form-control amount5" style="height: 50px; width: 250px;"id="quantity" placeholder="Amount Needed" value="5">
+                                            </div>
+                                             
+                                           
+                                            
+                                
+                                        </li>
+                                    </ul>
+                                    <div class="textboxs-error">
+
+
+                                    </div>
+                                    
+                                
+                                <div class="row">
+                                    <div class="col-lg-9">
+
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <button class="btn d-block w-100 d-sm-inline-block btn-success green-button" style="max-height: 50px; max-width: 200px;" >Save
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <ul class="social-icon-style1 list-unstyled mb-0 ps-0">
+                                <li><a href="#!"><i class="ti-twitter-alt"></i></a></li>
+                                <li><a href="#!"><i class="ti-facebook"></i></a></li>
+                                <li><a href="#!"><i class="ti-pinterest"></i></a></li>
+                                <li><a href="#!"><i class="ti-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+
+      <!-- Footer Area -->
+<footer id="footer" class="footer ">
+    <!-- Footer Top -->
+    <div class="footer-top">
+        <div class="container">
+            <div class="row" style="display: flex; justify-content: space-between; align-content: center;">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer f-link">
+                        <h2>Quick Links</h2>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <ul>
+                                    <li><a href="homepageorg.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+                                    <li><a href="aboutusorg.html"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+                                    <li><a href="orgsettings.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Settings</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <ul>
+                                    <li><a href="required.html"><i class="fa fa-caret-right" aria-hidden="true"></i>My Donations</a></li>
+                                    <li><a href="notifications.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Notifications</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="single-footer">
+                        <h2>Contact us</h2>
+                        <ul class="top-contact">
+								<li style="color: white;"><i class="fa fa-phone"></i>     +880 1234 56789</li>
+								<li style="color: white;"><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">    support@yourmail.com</a></li>
+							</ul>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Footer Top -->
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <div class="copyright-content">
+                        <p>© Copyright 2024  |  All Rights Reserved </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
+
+
+
+<script>
+
+    //map 
+    let count = 1; 
+  
+    const map = L.map('map').setView([30.00, 31.43], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+  
+            const defMarker = L.marker([30.00, 31.43]).addTo(map).bindPopup('Hello, Leaflet!');
+  
+    
+            defMarker.on('click', function () {
+                count--; 
+                map.removeLayer(defMarker); // Remove the marker when clicked
+            });
+  
+            map.on('click', function (e) {
+            if (count === 0) {
+              count++; 
+              
+            
+              
+            const latlng = e.latlng;
+            console.log('Selected location:', latlng);
+    
+            const marker = L.marker(latlng).addTo(map).bindPopup('Hello, Leaflet!');
+    
+            // Listen for the marker's click event
+            marker.on('click', function () {
+                count--; 
+                map.removeLayer(marker); // Remove the marker when clicked
+            });
+  
+          }
+    
+        
+    });
+    
+            const searchControl = L.Control.geocoder({
+            defaultMarkGeocode: false, 
+    }).addTo(map);
+    
+    searchControl.on('markgeocode', function (e) {
+        latlng = e.geocode.center;
+        console.log('Selected location:', latlng);
+        map.setView(latlng, 13)
+    
+      });
+
+
+    //map1  
+    let count1 = 0; 
+  
+  const map1 = L.map('map1').setView([30.09, 31.63], 13);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map1);
+
+          const defMarker1 = L.marker([30.09, 31.63]).addTo(map1).bindPopup('Hello, Leaflet!');
+
+  
+          defMarker1.on('click', function () {
+              map1.removeLayer(defMarker1); // Remove the marker when clicked
+          });
+
+          map1.on('click', function (e) {
+          if (count1 === 0) {
+            count1++; 
+            
+          
+            
+          const latlng1 = e.latlng;
+          console.log('Selected location:', latlng1);
+  
+          const marker1 = L.marker(latlng1).addTo(map1).bindPopup('Hello, Leaflet!');
+  
+          // Listen for the marker's click event
+          marker1.on('click', function () {
+              count1--; 
+              map1.removeLayer(marker1); // Remove the marker when clicked
+          });
+
+        }
+  
+      
+  });
+  
+          const searchControl1 = L.Control.geocoder({
+          defaultMarkGeocode: false, 
+  }).addTo(map1);
+  
+  searchControl1.on('markgeocode', function (e) {
+      latlng1 = e.geocode.center;
+      console.log('Selected location:', latlng1);
+      map1.setView(latlng1, 13)
+  
+    });
+
+    
+    </script>
+
+<script src="scriptReq.js"></script>
+<!-- jquery Min JS -->
+<script src="js/jquery.min.js"></script>
+<!-- jquery Migrate JS -->
+<script src="js/jquery-migrate-3.0.0.js"></script>
+<!-- jquery Ui JS -->
+<script src="js/jquery-ui.min.js"></script>
+<!-- Easing JS -->
+<script src="js/easing.js"></script>
+<!-- Color JS -->
+<script src="js/colors.js"></script>
+<!-- Popper JS -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="js/bootstrap-datepicker.js"></script>
+<!-- Jquery Nav JS -->
+<script src="js/jquery.nav.js"></script>
+<!-- Slicknav JS -->
+<script src="js/slicknav.min.js"></script>
+<!-- ScrollUp JS -->
+<script src="js/jquery.scrollUp.min.js"></script>
+<!-- Niceselect JS -->
+<script src="js/niceselect.js"></script>
+<!-- Tilt Jquery JS -->
+<script src="js/tilt.jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="js/owl-carousel.js"></script>
+<!-- counterup JS -->
+<script src="js/jquery.counterup.min.js"></script>
+<!-- Steller JS -->
+<script src="js/steller.js"></script>
+<!-- Wow JS -->
+<script src="js/wow.min.js"></script>
+<!-- Magnific Popup JS -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Counter Up CDN JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

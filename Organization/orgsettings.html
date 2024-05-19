@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <link rel="stylesheet" href="../settings.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.js"></script>
+
+		<!-- Favicon -->
+        <link rel="icon" href="img/ashez_transparent.png">
+		
+		<!-- Google Fonts -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- Nice Select CSS -->
+		<link rel="stylesheet" href="css/nice-select.css">
+		<!-- Font Awesome CSS -->
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- icofont CSS -->
+        <link rel="stylesheet" href="css/icofont.css">
+		<!-- Slicknav -->
+		<link rel="stylesheet" href="css/slicknav.min.css">
+		<!-- Owl Carousel CSS -->
+        <link rel="stylesheet" href="css/owl-carousel.css">
+		<!-- Datepicker CSS -->
+		<link rel="stylesheet" href="css/datepicker.css">
+		<!-- Animate CSS -->
+        <link rel="stylesheet" href="css/animate.min.css">
+		<!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="css/magnific-popup.css">
+		
+		<!-- Medipro CSS -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="../alert.css">
+        <link rel="stylesheet" href="../popout.css">
+		
+        <style>
+          #map {
+           width: 100%;
+           height: 400px;
+           margin-bottom: 10%;
+       }
+
+
+
+
+       
+       </style>        
+
+</head>
+<body>
+ <!-- Header Area -->
+ <header class="header" s>
+    <!-- Header Inner -->
+    <div class="header-inner" style="z-index: 99999999999;">
+        <div class="container" >
+            <div class="inner"  >
+                <div class="row">
+                  <i class="icofont-arrow-left" id = "left-arrow" onclick="goBack()"></i>
+
+                    <div class="col-lg-3 col-md-3 col-12">
+                        <!-- Start Logo -->
+                        <div class="logo">
+                        <a href="homepageorg.html"><img src="img/ASHEZ.png" alt="#"></a>
+                        </div>
+                        <!-- End Logo -->
+                    </div>
+                    <div class="col-lg-6 col-md-9 col-12">
+                        <!-- Main Menu -->
+                        <div class="main-menu">
+                            <nav class="navigation" style="align-self: flex-start;">
+                                <ul class="nav menu" >
+                                    <li ><a href="homepageorg.html">Home</i></a>
+                                    </li>
+                                    <li><a href="javascript:void(0);">Request <i class="icofont-rounded-down"></i></a> 
+                                        <ul class="dropdown">
+                                          <li>
+                                            <a href="postmed.html">Medical Supplies</a>
+                                                    <a href="postschool.html">School Supplies</a>
+                                                    <a href="postclothes.html">Clothes</a>
+                                                    <a href="postfood.html">Food</a>
+                                                    <a href="postblood.html">Blood</a>
+                                                    <a href="posttoys.html">Toys</a>
+                                                    <a href="postdoctor.html">Doctors</a>
+                                                    <a href="postteacher.html">Teachers</a>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="aboutusorg.html">About Us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--/ End Main Menu -->
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-12" id = "icon-column">
+                        <div class="icon-container">
+                          <nav class="navigation">
+                            <ul class="nav menu" style="display: flex; align-items: center;">
+                                <li ><a href="notifications.html"><i class="bi bi-bell ashez-icon" id = "bell-icon"></i></a></li>
+                                <li class="active"><a href="orgsettings.html" ><i class="bi bi-gear ashez-icon" id = "settings-gear"></i></a></li>
+                                <a href="../index.html" class="btn d-block w-100 d-sm-inline-block btn-light delete-button" style="max-width: 96px; max-height: 45px;" id="log-out" >Logout</a>
+                              </ul>
+                        </nav>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ End Header Inner -->
+</header>
+<!-- End Header Area -->   
+
+<div class="container">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb" class="main-breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="homepageorg.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="javascript:void(0);">Settings</a></li>
+      </ol>
+    </nav>
+    <!-- /Breadcrumb -->
+
+    <div class="row gutters-sm">
+      <div class="col-md-4 d-none d-md-block">
+        <div class="card">
+          <div class="card-body">
+            <nav class="nav flex-column nav-pills nav-gap-y-1">
+              <a href="#profile" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Profile Information
+              </a>
+            
+              <a href="#security" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield mr-2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Security
+              </a>
+
+              <a href="#dropoff" data-toggle="tab" class="nav-item nav-link has-icon nav-link-faded">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-activity"><path d="M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"></path><polyline points="2.32 6.16 12 11 21.68 6.16"></polyline><line x1="12" y1="22.76" x2="12" y2="11"></line></svg>     Dropoff
+                            </a>
+
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header border-bottom mb-3 d-flex d-md-none">
+            <ul class="nav nav-tabs card-header-tabs nav-gap-x-1" role="tablist">
+              <li class="nav-item">
+                <a href="#profile" data-toggle="tab" class="nav-link has-icon active"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>
+              </li>
+              <li class="nav-item">
+                <a href="#account" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></a>
+              </li>
+              <li class="nav-item">
+                <a href="#security" data-toggle="tab" class="nav-link has-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></a>
+              </li>
+             
+             
+            </ul>
+          </div>
+          <div class="card-body tab-content">
+            <div class="tab-pane active" id="profile">
+              <h6>YOUR PROFILE INFORMATION</h6>
+              <hr>
+              <form>
+                <div class = "form-group">
+                  <label for="username">Add a profile picture</label>
+
+                  <div class="card" style="max-width: 50%;">
+                    <div class="card-body">
+                      <div
+                        class="img-holder mr-md-4 mb-md-0 mb-4 mx-auto mx-md-0 d-md-none d-lg-flex"
+                        style="justify-content: center; margin-right: 0%!important; border: 1px solid;" 
+                      >
+                        <img class="img-holder photo"  src="../Organization/img/uploadf.jpg" alt="" />
+                      </div>
+                      <br />
+                      <div class="row" style="justify-content: center;">
+                        <input type="file" id="file-here" accept="image/*" class="btn photobtn" style="max-width: 84%;" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="username">First Name</label>
+                  <input type="text" class="form-control" id="fullName" aria-describedby="usernameHelp" placeholder="Enter your first name" value="Omar">
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Last Name</label>
+                  <input type="text" class="form-control" id="lastName" aria-describedby="usernameHelp" placeholder="Enter your last name" value="Karim">
+                </div>
+
+                <div class="form-group">
+                  <label for="fullName">Organization Name</label>
+                  <input type="text" class="form-control" id="orgname" aria-describedby="fullNameHelp" placeholder="Enter Your Organization Name" value="Gratitude Gateway Foundation" >
+                  <small id="fullNameHelp" class="form-text text-muted">Your name may appear around here where you are mentioned. You can change or remove it at any time.</small>
+                </div>
+
+                <div class="form-group">
+                  <label for="username">Username</label>
+                  <input type="text" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Enter your username" value="org1">
+                </div>
+
+                <div class="form-group">
+                  <label for="gender">Gender</label>
+
+                  <br>
+                  <select class=" nice-select form-control" id="gender">
+                    <option value="">Select Gender</option>
+                    <option value="male" selected>Male</option>
+                    <option value="female">Female</option>
+                </select>
+              </div>
+              <br>
+              <br>
+                
+                
+                <div class="form-group">
+                  <label for="url">Email</label>
+                  <input type="text" class="form-control" id="email" placeholder="Enter your email address" value="gateway@gmail.com" >
+                </div>
+                <div class="form-group">
+                  <label for="url">Phone Number</label>
+                  <input type="text" class="form-control" id="phone" placeholder="Enter your phone number" value="+47841945141" >
+                </div>
+                <div class="form-group">
+                  <label for="location">Address</label>
+                  <input type="text" class="form-control" id="address" placeholder="Enter your Organization Address" value="23 July street" >
+                </div>
+
+                <div class="form-group">
+                  <label for="location">Area</label>
+                  <input type="text" class="form-control" id="area" placeholder="Enter your Organization Area" value="Zamalek" >
+                </div>
+
+                <div class="form-group">
+                  <label for="location">Governorate</label>
+                  <input type="text" class="form-control" id="governorate" placeholder="Enter your Organization governorate" value="Cairo" >
+                </div>
+
+                
+                <div class="form-group">
+                  <label for="location">Pin the organization address here(Click on a marker to remove it):</label>
+                  <div id = 'map'></div>
+                </div>
+
+
+                <div class="form-group">
+                  <label for="location">Organization Type</label>
+                  <input type="text" class="form-control" id="type" placeholder="Enter your Organization Type" value="Orphanage" >
+                </div>
+               
+                <br>
+                <button type="button" class="btn btn-primary" id = "update-profile">Update Profile</button>
+
+                <div id = "update-prof"></div>
+              </form>
+            </div>
+            <div class="tab-pane" id="security">
+              <h6>SECURITY SETTINGS</h6>
+              <hr>
+              <form>
+                <div class="form-group">
+                  <label class="d-block">Change Password</label>
+                  <input type="password" class="form-control" id = "old-pass" placeholder="Enter your old password" >
+                  <input type="password" class="form-control mt-1" id = "new-pass1"placeholder="New password">
+                  <input type="password" class="form-control mt-1" id = new-pass2 placeholder="Confirm new password">
+                </div>
+              </form>
+              <hr>
+              <form>
+                <div class="form-group mb-0" >
+                      <button class="btn btn-light btn-sm ml-auto" type="button" id = "confirm-button" >Confirm</button>
+
+                  </ul>
+                </div>
+
+                <div id = "add-confirm"></div>
+              </form>
+            </div>
+
+            <div class="tab-pane" id="dropoff">
+              <h6> DROPOFF SETTINGS</h6>
+              <hr>
+              <form>
+                <div class="form-group">
+                  <label class="d-block">Change Dropoff time</label>
+
+                  <div class="form-group small text-muted" style="font-size: 90%;">
+                    Specify the time slot you want your donations to be dropped off at.
+                  </div>
+                  <label for="username">From Time</label>
+                  <input type="time" class="form-control" id = "from-time" placeholder="FROM" value="09:00" >
+                  <br>
+                  <label for="username">To Time</label>
+                  <input type="time" class="form-control mt-1" id = "to-time" placeholder="TO" value="15:00">
+                </div>
+              </form>
+              <hr>
+              <form>
+                <div class="form-group mb-0">
+                      <button class="btn btn-light btn-sm ml-auto" type="button" id = "update-button" >Update</button>
+                  </ul>
+                </div>
+
+                <div id = "add-drop"></div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <br>
+ <!-- Footer Area -->
+<footer id="footer" class="footer ">
+  <!-- Footer Top -->
+  <div class="footer-top">
+      <div class="container">
+          <div class="row" style="display: flex; justify-content: space-between; align-content: center;">
+              <div class="col-lg-3 col-md-6 col-12">
+                  <div class="single-footer f-link">
+                      <h2>Quick Links</h2>
+                      <div class="row">
+                          <div class="col-lg-6 col-md-6 col-12">
+                              <ul>
+                                  <li><a href="homepageorg.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Home</a></li>
+                                  <li><a href="aboutusorg.html"><i class="fa fa-caret-right" aria-hidden="true"></i>About Us</a></li>
+                                  <li><a href="javascript:void(0);"><i class="fa fa-caret-right" aria-hidden="true"></i>Settings</a></li>
+                              </ul>
+                          </div>
+                          <div class="col-lg-6 col-md-6 col-12">
+                              <ul>
+                                  <li><a href="required.html"><i class="fa fa-caret-right" aria-hidden="true"></i>My Donations</a></li>
+                                  <li><a href="notifications.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Notifications</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-lg-3 col-md-6 col-12">
+                  <div class="single-footer">
+                      <h2>Contact us</h2>
+                      <ul class="top-contact">
+              <li style="color: white;"><i class="fa fa-phone"></i>     +880 1234 56789</li>
+              <li style="color: white;"><i class="fa fa-envelope"></i><a href="mailto:support@yourmail.com">    support@yourmail.com</a></li>
+            </ul>
+                     
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--/ End Footer Top -->
+  <!-- Copyright -->
+  <div class="copyright">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-12">
+                  <div class="copyright-content">
+                      <p>© Copyright 2024  |  All Rights Reserved </p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!--/ End Copyright -->
+</footer>
+<!--/ End Footer Area -->
+
+
+<script>
+
+  let count1 = 1; 
+
+  const map = L.map('map').setView([30.05, 31.22], 13);
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          const defMarker = L.marker([30.05, 31.22]).addTo(map);
+
+  
+          defMarker.on('click', function () {
+            count1--; 
+              map.removeLayer(defMarker); // Remove the marker when clicked
+          });
+
+          map.on('click', function (e) {
+          if (count1 === 0) {
+            count1++; 
+            
+          
+            
+          const latlng = e.latlng;
+          console.log('Selected location:', latlng);
+  
+          const marker = L.marker(latlng).addTo(map);
+  
+          // Listen for the marker's click event
+          marker.on('click', function () {
+              count1--; 
+              map.removeLayer(marker); // Remove the marker when clicked
+          });
+
+        }
+  
+      
+  });
+  
+          const searchControl = L.Control.geocoder({
+          defaultMarkGeocode: false, 
+  }).addTo(map);
+  
+  // Listen for a result (location) selection
+  searchControl.on('markgeocode', function (e) {
+      latlng = e.geocode.center;
+      console.log('Selected location:', latlng);
+      map.setView(latlng, 13)
+  
+    });
+  
+  
+  </script>
+
+<!-- jquery Min JS -->
+<script src="scriptOrgSett.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<!-- jquery Migrate JS -->
+<script src="js/jquery-migrate-3.0.0.js"></script>
+<!-- jquery Ui JS -->
+<script src="js/jquery-ui.min.js"></script>
+<!-- Easing JS -->
+<script src="js/easing.js"></script>
+<!-- Color JS -->
+<script src="js/colors.js"></script>
+<!-- Popper JS -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap Datepicker JS -->
+<script src="js/bootstrap-datepicker.js"></script>
+<!-- Jquery Nav JS -->
+<script src="js/jquery.nav.js"></script>
+<!-- Slicknav JS -->
+<script src="js/slicknav.min.js"></script>
+<!-- ScrollUp JS -->
+<script src="js/jquery.scrollUp.min.js"></script>
+<!-- Niceselect JS -->
+<script src="js/niceselect.js"></script>
+<!-- Tilt Jquery JS -->
+<script src="js/tilt.jquery.min.js"></script>
+<!-- Owl Carousel JS -->
+<script src="js/owl-carousel.js"></script>
+<!-- counterup JS -->
+<script src="js/jquery.counterup.min.js"></script>
+<!-- Steller JS -->
+<script src="js/steller.js"></script>
+<!-- Wow JS -->
+<script src="js/wow.min.js"></script>
+<!-- Magnific Popup JS -->
+<script src="js/jquery.magnific-popup.min.js"></script>
+<!-- Counter Up CDN JS -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.min.js"></script>
+<!-- Main JS -->
+<script src="js/main.js"></script>
+
+
+
+</body>
+</html>

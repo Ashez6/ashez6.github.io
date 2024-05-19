@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule Donation</title>
+    <link rel="stylesheet" href="../lists.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="img/ashez_transparent.png" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="css/nice-select.css" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="css/icofont.css" />
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="css/slicknav.min.css" />
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="css/owl-carousel.css" />
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="css/datepicker.css" />
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+      integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY="
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="../popout.css" />
+  </head>
+  <body>
+    <br />
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8" style="display: flex; justify-content: center">
+        <h3
+          style="
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: #0f1035;
+          "
+        >
+          Please Select Transportaion Type and Preferred Time Slot for the
+          Donation
+        </h3>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+    <br />
+    <section>
+      <div class="row">
+        <div class="col-lg-4" style="display: flex; justify-content: center">
+          <label
+            class="radio-btn"
+            style="display: flex; justify-content: center"
+          >
+            <input
+              type="radio"
+              name="options"
+              id="option1"
+              autocomplete="off"
+            />
+            <i
+              class="icofont-truck-loaded vehicle"
+              style="font-size: 200px"
+            ></i>
+          </label>
+        </div>
+        <div class="col-lg-4" style="display: flex; justify-content: center">
+          <label
+            class="radio-btn"
+            style="display: flex; justify-content: center"
+          >
+            <input
+              type="radio"
+              name="options"
+              id="option2"
+              autocomplete="off"
+            />
+            <i class="icofont-car-alt-3 vehicle" style="font-size: 200px"></i>
+          </label>
+        </div>
+        <div class="col-lg-4" style="display: flex; justify-content: center">
+          <label
+            class="radio-btn"
+            style="display: flex; justify-content: center"
+          >
+            <input
+              type="radio"
+              name="options"
+              id="option3"
+              autocomplete="off"
+            />
+            <i class="icofont-motor-bike vehicle" style="font-size: 200px"></i>
+          </label>
+        </div>
+      </div>
+      <div
+        id="verror"
+        style="display: flex; justify-content: center; margin-bottom: 30px"
+      ></div>
+    </section>
+
+    <section style="margin-bottom: 5%">
+      <div class="row" style="justify-content: center; margin-bottom: 20px">
+        <div class="col-lg-7" style="display: flex; justify-content: center">
+          <label
+            for="time-slot-select"
+            style="
+              font-size: 20px;
+              color: #0f1035;
+              margin-top: 0.5%;
+              margin-right: 2%;
+            "
+            >Select Preferred Time Slot:</label
+          >
+          <select class="nice-select1" id="time-slot-select">
+            <option value="morning">Morning (9:00 AM - 12:00 PM)</option>
+            <option value="afternoon">Afternoon (12:00 PM - 3:00 PM)</option>
+            <option value="evening">Evening (3:00 PM - 6:00 PM)</option>
+            <option value="night">Night (6:00 PM - 9:00 PM)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="justify-content: center; margin-bottom: 5%">
+        <h6 style="text-align: center">
+          Once confirming, the requesting organisation will be notified of your
+          fulfillment of their request.<br />
+          Pick-up and delivery of donated items are completely free of charge.
+        </h6>
+        <br />
+        <a
+          class="btn d-block w-100 d-sm-inline-block btn-success green-button"
+          style="
+            max-height: 50px;
+            max-width: 300px;
+            margin-left: 40%;
+            color: white;
+          "
+          id="confirmbtn"
+          >Confirm Donation</a
+        >
+
+        <br /><br />
+        <div
+          style="display: flex; align-items: center; justify-content: center"
+        >
+          <a
+            class="btn d-block w-100 d-sm-inline-block btn-danger delete-button"
+            style="
+              max-height: 40px;
+              max-width: 100px;
+              color: white;
+              font-size: 13px;
+              padding: 0.5%;
+            "
+            id="backbtn"
+          >
+            Cancel
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- jquery Min JS -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jquery Migrate JS -->
+    <script src="js/jquery-migrate-3.0.0.js"></script>
+    <!-- jquery Ui JS -->
+    <script src="js/jquery-ui.min.js"></script>
+    <!-- Easing JS -->
+    <script src="js/easing.js"></script>
+    <!-- Color JS -->
+    <script src="js/colors.js"></script>
+    <!-- Popper JS -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap Datepicker JS -->
+    <script src="js/bootstrap-datepicker.js"></script>
+    <!-- Jquery Nav JS -->
+    <script src="js/jquery.nav.js"></script>
+    <!-- Slicknav JS -->
+    <script src="js/slicknav.min.js"></script>
+    <!-- ScrollUp JS -->
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <!-- Niceselect JS -->
+    <script src="js/niceselect.js"></script>
+    <!-- Tilt Jquery JS -->
+    <script src="js/tilt.jquery.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="js/owl-carousel.js"></script>
+    <!-- counterup JS -->
+    <script src="js/jquery.counterup.min.js"></script>
+    <!-- Steller JS -->
+    <script src="js/steller.js"></script>
+    <!-- Wow JS -->
+    <script src="js/wow.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <!-- Counter Up CDN JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+
+    <script src="schedulejs.js"></script>
+  </body>
+</html>

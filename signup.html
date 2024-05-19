@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashez</title>
+    <link rel="icon" href="Donor/img/ashez_transparent.png" />
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./Donor/css/nice-select.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-control-geocoder@1.13.0/dist/Control.Geocoder.js"></script>
+  <link rel="stylesheet" href="alert.css">
+
+  <style>
+    #map {
+      width: 80%;  
+      height: 300px;
+      margin:auto;
+        }
+
+
+  </style>
+  </head>
+  <body>
+    <div class="wrapper fadeInDown">
+      <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class ="active" id="Donor" style="cursor: pointer">Donor</h2>
+        <h2 class ="inactive" id="Organization" style="cursor: pointer">Organization</h2>
+
+
+  <!-- Sign Up Donor Form -->
+  <section id="signUpDonorForm">
+    <form>
+      <label for="first-name1">First Name:</label>
+      <input type="text" id="first-name1" placeholder="First Name*" required />
+      <br>
+      <label for="last-name1">Last Name:</label>
+      <br>
+      <input type="text" id="last-name1" placeholder="Last Name*" required />
+      <br>
+
+      <label for="username">Username:</label>
+        <br>
+          <input type="text" id="username1" placeholder="Username*" required />
+
+      <select class="nice-select form-control" id="gender1" style="margin-left: 31%; margin-top: 10px; margin-right:25%;">
+          <option value="null">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+      </select>
+      <br>
+      <label for="email1" >Email:</label>
+      <br>
+      <input type="text" id="email1" placeholder="Email*" required />
+      <label for="signup-password1">Password:</label>
+      <input type="password" id="signup-password1" placeholder="Password*" required />
+      <label for="contact-number1">Contact Number:</label>
+      <input type="text" id="contact-number1" placeholder="Contact Number*" required />
+      <label for="address1">Address:</label>
+      <input type="text" id="address1" placeholder="Address*" required />
+      <br>
+      <label for="area1">Area:</label>
+      <br>
+      <input type="text" id="area1" placeholder="Area*" required />
+      <label for="governorate1">Governorate:</label>
+      <input type="text" id="governorate1" placeholder="Governorate*" required />
+  
+      <select class="nice-select form-control" id="donor-type" style="margin-left: 27%; margin-top: 10px; margin-right: 25%;">
+        <option value="">Select Donor Type</option>
+        <option value="teacher">Teacher</option>
+        <option value="doctor">Doctor</option>
+        <option value="neither">Neither</option>
+    </select>
+    <label for="verification-file" id="verificationLabel" style="display: none; margin-bottom: 10px;">Upload your bachelor's certificate:</label>
+    <input type="file" id="verification-file" style="display: none; margin-left: 8rem; margin-bottom: 10px;" />
+    <label for="verification-file" id="verificationLabel2" style="display: none; margin-bottom: 10px;">Upload proof of employement:</label>
+    <input type="file" id="verification-file2" style="display: none; margin-left: 8rem; margin-bottom: 10px;" />
+    <input type="button" class="fadeIn fourth" value="Sign Up" style="cursor: pointer" id="sign-up-donor"/>
+    <div id="formFooter">
+      <a class="underlineHover" href="index.html">Already have an account</a>
+</div>
+  </form>
+  </section>
+ <!-- Sign Up Organization Form -->
+ <section id="signUpOrgForm" style="display: none;">
+    <form>
+      <label for="first-name2">First Name:</label>
+        <input type="text" id="first-name2" placeholder="First Name*" required />
+        <br>
+      <label for="last-name1">Last Name:</label>
+      <br>
+        <input type="text" id="last-name2" placeholder="Last Name*" required />
+
+        <label for="username">Username:</label>
+        <br>
+          <input type="text" id="username2" placeholder="Username*" required />
+        
+        <select class=" nice-select form-control" id="gender2" style="margin-left: 31%; margin-top: 10px; margin-right:25%;">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+        <label for="email2" >Email:</label>
+        <br>
+        <input type="text" id="email2" placeholder="Email*" required />
+        <label for="signup-password2">Password:</label>
+        <input type="password" id="signup-password2" placeholder="Password*" required />
+        <label for="contact-number1">Contact Number:</label>
+        <input type="text" id="contact-number2" placeholder="Contact Number*" required />
+        <label for="org-name2">Organization Name:</label>
+        <input type="text" id="org-name2" placeholder="Organization Name*" required />
+        <label for="org-type2">Organization Type:</label>
+        <input type="text" id="org-type2" placeholder="Organization Type*" required />
+        <label for="address2">Address:</label>
+        <input type="text" id="address2" placeholder="Organization Address*" required />
+        <br>
+        <label for="area1">Area:</label>
+        <br>
+        <input type="text" id="area2" placeholder="Area*" required />
+        <label for="governorate1">Governorate:</label>
+        <input type="text" id="governorate2" placeholder="Governorate*" required />
+        <label for="org-verification-file">Upload your organization's business license: </label>
+        <br>
+        <input type="file" id="org-verification-file" multiple style="margin-left: 4rem;">
+        <br>
+        <label for="org-verification-file2">Upload proof of employement in the organization: </label>
+        <input type="file" id="org-verification-file2" multiple style="margin-left: 4rem;">
+        <br>
+        <label for="map">Select your Organization location on the map below</label>
+        <br>
+        
+        <div id = 'map'></div>
+
+        <input type="button" class="fadeIn fourth" value="Sign Up" style="cursor: pointer" id="sign-up-org"/>
+    
+        <div id = "popup-here"></div>
+
+        <div id="formFooter">
+          <a class="underlineHover" href="index.html">Already have an account</a>
+  </div>
+      </form>
+ </section>
+
+  <script>
+    let count = 0; 
+    const map = L.map('map').setView([30.083153, 31.663866], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        map.on('click', function (e) {
+        if (count == 0) {
+        count++
+        const latlng = e.latlng;
+        console.log('Selected location:', latlng);
+
+        const marker = L.marker(latlng).addTo(map).bindPopup('Hello, Leaflet!');
+
+        marker.on('click', function () {
+          count--
+            map.removeLayer(marker); 
+        }
+      
+      
+      )
+        };   
+});
+
+        const searchControl = L.Control.geocoder({
+        defaultMarkGeocode: false, 
+}).addTo(map);
+
+// Listen for a result (location) selection
+searchControl.on('markgeocode', function (e) {
+    latlng = e.geocode.center;
+    console.log('Selected location:', latlng);
+    map.setView(latlng, 13)
+
+  });
+  </script>
+    <script src="signup.js"></script>
+  </body>
+</html>
